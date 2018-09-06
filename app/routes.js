@@ -18,7 +18,7 @@ module.exports = function(app) {
   });
 
   app.post("/signup", function(req, res) {
-    console.log(req.body);
+
     User.signup(
       req.body.firstName,
       req.body.lastName,
@@ -27,6 +27,7 @@ module.exports = function(app) {
       req.body.confirmPassword
     )
       .then(() => {
+        req.flash('success', 'Inscription réussie ! Vous pouvez maintenant vous connecter.')
         res.redirect("/?signup=ok");
       })
       .catch(errors => {
