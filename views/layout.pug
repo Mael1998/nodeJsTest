@@ -4,19 +4,17 @@ html
     link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
     meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
     title= nodeapp
-    script.
-      function goToLogin() {
-        window.location.href = '/login'
-      }
-      function goToSignup() {
-        window.location.href = '/signup'
-      }
   body
     // block header
     header#head
-        nav.login
-            button.btn.btn-dark(onclick="goToLogin()") connexion
-            button.btn.btn-dark(onclick="goToSignup()") inscription
+        if user
+          nav.nav-logout
+              p.connect Vous êtes connecté en tant que #{user.firstName} #{user.lastName}
+              a.btn.btn-dark.logout(href="/logout") déconnexion
+        else
+          nav.nav-login
+              a.btn.btn-dark(href="/login") connexion
+              a.btn.btn-dark(href="/signup") inscription
     each messages, kind in flashMessages
       each message in messages
         <div class="alert alert-#{kind} container" style='text-align:center' role="alert">

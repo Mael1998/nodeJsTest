@@ -5,6 +5,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const flash = require('connect-flash');
+const passport = require('passport');
 
 const app = express();
 
@@ -33,8 +34,11 @@ app.use((req, res, next) => {
 })
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extend: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-require('./app/routes')(app)
+require('./app/passport')(passport);
+require('./app/routes')(app, passport)
 
 mongoose
   .connect(

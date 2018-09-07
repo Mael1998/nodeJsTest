@@ -1,21 +1,35 @@
-#head{
-    display: flex;
-    justify-content: flex-end;
-    background: #252628;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+#head {
+  display: flex;
+  justify-content: flex-end;
+  background: #252628;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.login{
-    display: flex;
-    justify-content: space-around;
-    width: 250px;
+.nav-login {
+  display: flex;
+  justify-content: space-around;
+  width: 250px;
 }
 
-body{
-    margin: 0;
+.nav-logout {
+  display: flex;
+  justify-content: space-around;
+}
+
+body {
+  margin: 0;
 }
 
 p {
-    margin-top: 1rem !important;
+  margin-top: 1rem !important;
+}
+
+.connect {
+  color: #fcfcfc;
+  margin-right: 2rem;
+}
+
+.logout {
+  padding: 1rem 0.75rem !important;
 }
